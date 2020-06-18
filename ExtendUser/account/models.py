@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
     def _create_user(self, username, email, password, is_staff, is_superuser, **extra_fields):
         now = timezone.now()
         if not username:
-            raise ValueError(_(‘The given username must be set’))
+            raise ValueError(_('The given username must be set'))
         email = self.normalize_email(email)
         user = self.model(username=username, email=email,
         is_staff=is_staff, is_active=True,
@@ -29,9 +29,8 @@ class UserManager(BaseUserManager):
         return self._create_user(username, email, password, False, False, **extra_fields)    
     
     def create_superuser(self, username, email, password, **extra_fields):
-        user=self._create_user(username, email, password, True, True, **extra_fields)   
-            
-    return user
+        user=self._create_user(username, email, password, True, True, **extra_fields)               
+        return user
 
 class User(AbstractBaseUser, PermissionsMixin):
     
@@ -46,7 +45,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_trusty = models.BooleanField(_('trusty'), default=False, help_text=_('Designates whether this user has confirmed his account.'))
 
     USERNAME_FIELD = 'cpf'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name', 'cpf']
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name','email']
 
     objects = UserManager()
     
