@@ -28,7 +28,13 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
-AUTH_USER_MODEL = 'account.User'
+# Adicioanais do Settings
+AUTH_USER_MODEL = 'account.User' # PARA TROCAR O USER PRIMÁRIO
+
+LOGIN_REDIRECT_URL = 'index' # REDIRECIONAR APÓS LOGIN
+LOGOUT_REDIRECT_URL = 'index' # REDIRECIONAR APÓS LOGOUT
+
+#Fim do adicionais do Settings
 
 # Application definition
 
