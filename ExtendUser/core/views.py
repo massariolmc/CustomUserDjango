@@ -4,10 +4,7 @@ from django.http import HttpResponse
 # USER
 from django.contrib.auth.forms import UserCreationForm
 from ExtendUser.account.forms import UserCustomCreateForm
-#from ExtendUser.account.models import User
-
-
-
+from ExtendUser.account.models import User
 # Create your views here.
 
 
@@ -18,7 +15,8 @@ def base(request):
 def index(request):
     template_name = 'index.html'
     #return HttpResponse("Teste")
-    return render(request,template_name,{'form':'teste'})
+    count = User.objects.count()    
+    return render(request,template_name,{'count':count})
 
 def signup(request):
     if request.method == 'POST':
