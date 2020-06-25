@@ -34,6 +34,8 @@ AUTH_USER_MODEL = 'account.User' # PARA TROCAR O USER PRIMÁRIO
 LOGIN_REDIRECT_URL = 'index' # REDIRECIONAR APÓS LOGIN
 LOGOUT_REDIRECT_URL = 'index' # REDIRECIONAR APÓS LOGOUT
 
+#Incluido para teste de envio de email no reset email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #Fim do adicionais do Settings
 
 # Application definition
